@@ -1,4 +1,4 @@
-import { useProfile } from '@/views/hooks/profile/useProfile';
+import { useProfile } from '@/hooks/profile/useProfile';
 import { Button, TextField } from '@mui/material';
 
 export default function Profile() {

@@ -1,6 +1,6 @@
 'use client';
 
-import CityCard from '@/views/components/home/CityCard';
+import CityCard from '@/views/home/CityCard';
 
 export default function Home() {
   return (
