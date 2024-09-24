@@ -41,37 +41,39 @@ const CityCard = () => {
     };
   }
 
-  const handleChange = (event: SyntheticEvent, newValue: number) => {
+  const handleChange = (_: SyntheticEvent, newValue: number) => {
     setValue(newValue);
   };
 
   return (
-    <Box sx={{ width: '100%' }}>
-      <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-        <Tabs
-          value={value}
-          onChange={handleChange}
-          aria-label="basic tabs example"
-        >
-          <Tab label="Beli Tiket" {...a11yProps(0)} />
-          <Tab label="Cek Tiket" {...a11yProps(1)} />
-          <Tab label="Pariwisata" {...a11yProps(2)} />
-          <Tab label="Cek Paket" {...a11yProps(3)} />
-        </Tabs>
+    <div className="w-fit h-80 bg-white rounded-lg">
+      <Box sx={{ width: '100%' }}>
+        <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+          <Tabs
+            value={value}
+            onChange={handleChange}
+            aria-label="basic tabs example"
+          >
+            <Tab label="Beli Tiket" {...a11yProps(0)} />
+            <Tab label="Cek Tiket" {...a11yProps(1)} />
+            <Tab label="Pariwisata" {...a11yProps(2)} />
+            <Tab label="Cek Paket" {...a11yProps(3)} />
+          </Tabs>
+        </Box>
+        <CustomTabPanel value={value} index={0}>
+          <TripForm />
+        </CustomTabPanel>
+        <CustomTabPanel value={value} index={1}>
+          <CheckTicket />
+        </CustomTabPanel>
+        <CustomTabPanel value={value} index={2}>
+          <Pariwisata />
+        </CustomTabPanel>
+        <CustomTabPanel value={value} index={3}>
+          <CheckPackage />
+        </CustomTabPanel>
       </Box>
-      <CustomTabPanel value={value} index={0}>
-        <TripForm />
-      </CustomTabPanel>
-      <CustomTabPanel value={value} index={1}>
-        <CheckTicket />
-      </CustomTabPanel>
-      <CustomTabPanel value={value} index={2}>
-        <Pariwisata />
-      </CustomTabPanel>
-      <CustomTabPanel value={value} index={3}>
-        <CheckPackage />
-      </CustomTabPanel>
-    </Box>
+    </div>
   );
 };
 

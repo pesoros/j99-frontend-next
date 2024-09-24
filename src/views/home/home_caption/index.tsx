@@ -1,7 +1,11 @@
 'use client';
 
 const HomeCaption = () => {
-  return <span>home Caption</span>;
+  return (
+    <div className="">
+      <p className="text-red-700">The quick brown fox...</p>
+    </div>
+  );
 };
 
 export default HomeCaption;
