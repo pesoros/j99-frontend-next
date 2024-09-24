@@ -1,13 +1,13 @@
 'use client';
 
 import { ReactNode, SyntheticEvent, useState } from 'react';
-import { useCities } from '@/common/hooks/useCities';
-import { AutocompleteType } from '@/common/types/Mui';
-import Autocomplete from '@mui/material/Autocomplete/Autocomplete';
 import Box from '@mui/material/Box/Box';
 import Tab from '@mui/material/Tab/Tab';
 import Tabs from '@mui/material/Tabs/Tabs';
-import TextField from '@mui/material/TextField/TextField';
+import TripForm from './components/trip_form';
+import CheckTicket from './components/check_ticket';
+import Pariwisata from './components/pariwisata';
+import CheckPackage from './components/check_package';
 
 interface TabPanelProps {
   children?: ReactNode;
@@ -32,8 +32,6 @@ function CustomTabPanel(props: TabPanelProps) {
 }
 
 const CityCard = () => {
-  const { mappedCity } = useCities();
-
   const [value, setValue] = useState<number>(0);
 
   function a11yProps(index: number) {
@@ -55,19 +53,23 @@ const CityCard = () => {
           onChange={handleChange}
           aria-label="basic tabs example"
         >
-          <Tab label="Item One" {...a11yProps(0)} />
-          <Tab label="Item Two" {...a11yProps(1)} />
-          <Tab label="Item Three" {...a11yProps(2)} />
+          <Tab label="Beli Tiket" {...a11yProps(0)} />
+          <Tab label="Cek Tiket" {...a11yProps(1)} />
+          <Tab label="Pariwisata" {...a11yProps(2)} />
+          <Tab label="Cek Paket" {...a11yProps(3)} />
         </Tabs>
       </Box>
       <CustomTabPanel value={value} index={0}>
-        Item One
+        <TripForm />
       </CustomTabPanel>
       <CustomTabPanel value={value} index={1}>
-        Item Two
+        <CheckTicket />
       </CustomTabPanel>
       <CustomTabPanel value={value} index={2}>
-        Item Three
+        <Pariwisata />
+      </CustomTabPanel>
+      <CustomTabPanel value={value} index={3}>
+        <CheckPackage />
       </CustomTabPanel>
     </Box>
   );
