@@ -46,7 +46,7 @@ const CityCard = () => {
   };
 
   return (
-    <div className="w-fit h-80 bg-white rounded-lg">
+    <div className="w-[600px] h-80 bg-white rounded-lg">
       <Box sx={{ width: '100%' }}>
         <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
           <Tabs
